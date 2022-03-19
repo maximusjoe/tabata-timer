@@ -4,10 +4,10 @@ const Input = styled.input`
   padding: 20px 35px;
   font-size: 25px;
   outline: none;
-  background-color: #f5f5f5;
+  background-color: #e8e8e8;
+  width: 100%;
   border: none;
   border-radius: 40px;
-  display: block;
   margin-bottom: 30px;
 
   transition: background-color 300ms;

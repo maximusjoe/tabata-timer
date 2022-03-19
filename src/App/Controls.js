@@ -1,7 +1,7 @@
 import React from 'react';
 import useHotKeys from 'react-hotkeys-hook';
 
-import { Text, Button } from '../../components';
+import { Text, Button } from '../components';
 
 const Controls = ({ onToggle, isStarted }) => {
   useHotKeys('space, enter', (e) => {

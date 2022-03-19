@@ -2,16 +2,18 @@ import React from 'react';
 import { Container, Center } from '../components';
 
 import { Controls } from './Controls';
+import { Setup } from './Setup';
 import { Rounds } from './Rounds';
 import { Timer } from './Timer';
-import { Setup } from './Setup';
 
 import { useTabataHook } from './useTabataHook';
 
 const App = () => {
   const initialTabataState = {
     rounds: 8,
-    work: 20,
+    workMin: 5,
+    workMax: 15,
+    work: 60,
     rest: 10,
     isStarted: false,
     isFinished: false,

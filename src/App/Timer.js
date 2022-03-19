@@ -2,7 +2,7 @@ import React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 import transition from 'styled-transition-group';
 
-import { Text } from '../../components';
+import { Text } from '../components';
 
 const Fade = transition.div`
   position: absolute;

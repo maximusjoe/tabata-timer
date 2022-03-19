@@ -6,7 +6,9 @@ import {
 
 const defaultTabata = {
   rounds: 8,
-  work: 20,
+  workMin: 5,
+  workMax: 15,
+  work: 60,
   rest: 10,
   isStarted: false,
   isFinished: false,
@@ -15,6 +17,8 @@ const defaultTabata = {
 const useTabataHook = (initialTabataState = defaultTabata) => {
   const [initialTabata, setInitialTabata] = useState(initialTabataState);
   const [tabata, setTabata] = useState(initialTabata);
+  const randWork = Math.floor(Math.random() * (tabata.workMax - tabata.workMin + 1)) + tabata.workMin;
+  initialTabata.work = randWork;
 
   const startTabata = () => setTabata({
     ...tabata,
@@ -29,9 +33,11 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
     audio.play();
   };
 
+
+
   useEffect(() => {
     const {
-      work, rounds, rest, isStarted, isFinished,
+      workMin, workMax, work, rounds, rest, isStarted, isFinished,
     } = tabata;
 
     if (work === initialTabata.work && isStarted) {
