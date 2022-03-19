@@ -5,11 +5,12 @@ import {
 } from '../audio';
 
 const defaultTabata = {
-  rounds: 8,
-  workMin: 5,
-  workMax: 15,
+  rounds: 5,
+  workMin: 15,
+  workMax: 25,
   work: 60,
   rest: 10,
+  restPercent: 60,
   isStarted: false,
   isFinished: false,
 };
@@ -20,9 +21,24 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
   const randWork = Math.floor(Math.random() * (tabata.workMax - tabata.workMin + 1)) + tabata.workMin;
   initialTabata.work = randWork;
 
+  useEffect(() => {
+    initialTabata.rest = Math.floor(initialTabata.work * (initialTabata.restPercent / 100));
+  }, [tabata.rounds], [tabata.isStarted]);
+
+  useEffect(() => {
+    console.log("mount");
+    initialTabata.rest = Math.floor(initialTabata.work * (initialTabata.restPercent / 100));
+  }, []);
+
+
+
+
+
   const startTabata = () => setTabata({
     ...tabata,
     isStarted: true,
+    work: randWork,
+    rest: initialTabata.rest,
   });
   const stopTabata = () => setTabata(initialTabataState);
 
@@ -33,14 +49,16 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
     audio.play();
   };
 
-
+  console.log("Rest Time:" + tabata.rest);
+  console.log("init: " + initialTabata.rest);
 
   useEffect(() => {
     const {
-      workMin, workMax, work, rounds, rest, isStarted, isFinished,
+      work, rounds, rest, isStarted, isFinished,
     } = tabata;
 
-    if (work === initialTabata.work && isStarted) {
+
+    if (rest === 0) {
       playSound(start);
     }
     if (work === 0 && rest === initialTabata.rest && isStarted) {
@@ -78,7 +96,7 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
           ...tabata,
           rounds: rounds - 1,
           work: initialTabata.work,
-          rest: initialTabata.rest,
+          rest: Math.floor(randWork * tabata.restPercent / 100),
         });
       }
 

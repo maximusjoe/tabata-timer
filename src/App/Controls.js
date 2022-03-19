@@ -14,7 +14,7 @@ const Controls = ({ onToggle, isStarted }) => {
       <Button type={isStarted ? 'danger' : 'success'} onClick={onToggle}>
         {isStarted ? 'Stop' : 'Start'}
       </Button>
-      <Text size="14px">Press space or enter to start/stop timer</Text>
+      <Text size="14px"></Text>
     </React.Fragment>
   );
 };

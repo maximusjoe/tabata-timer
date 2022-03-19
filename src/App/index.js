@@ -10,11 +10,12 @@ import { useTabataHook } from './useTabataHook';
 
 const App = () => {
   const initialTabataState = {
-    rounds: 8,
-    workMin: 5,
-    workMax: 15,
+    rounds: 5,
+    workMin: 15,
+    workMax: 25,
     work: 60,
     rest: 10,
+    restPercent: 60,
     isStarted: false,
     isFinished: false,
   };
@@ -24,30 +25,45 @@ const App = () => {
   } = useTabataHook(initialTabataState);
 
   return (
-    <Container>
-      {tabata.isStarted ? (
-        <React.Fragment>
-          <Rounds round={tabata.rounds} />
-          <Center>
-            <Timer work={tabata.work} rest={tabata.rest} />
-          </Center>
-        </React.Fragment>
-      ) : (
-        <Setup onChange={({ target }) => handleTabataChange(target)} />
-      )}
-      <Center>
-        <Controls
-          onToggle={() => {
-            if (!tabata.isStarted) {
-              startTabata();
-            } else {
-              stopTabata();
-            }
-          }}
-          isStarted={tabata.isStarted}
-        />
-      </Center>
-    </Container>
+    <>
+      {/* set background color to green when tabata is started */}
+      {tabata.isStarted && <style>
+        {`
+        body {
+          background-color: ${(tabata.work === 0) ? 'red' : 'green'};
+        }
+      `}
+      </style>}
+
+
+      <Container>
+        <div style={{
+          fontSize: "2rem", textAlign: "center"
+        }}>Tabata Timer Randomizer</div>
+        {tabata.isStarted ? (
+          <React.Fragment>
+            <Rounds round={tabata.rounds} />
+            <Center>
+              <Timer work={tabata.work} rest={tabata.rest} />
+            </Center>
+          </React.Fragment>
+        ) : (
+          <Setup onChange={({ target }) => handleTabataChange(target)} />
+        )}
+        <Center>
+          <Controls
+            onToggle={() => {
+              if (!tabata.isStarted) {
+                startTabata();
+              } else {
+                stopTabata();
+              }
+            }}
+            isStarted={tabata.isStarted}
+          />
+        </Center>
+      </Container>
+    </>
   );
 };
 
