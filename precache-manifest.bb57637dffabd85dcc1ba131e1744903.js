@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "6df40a93779f3b69b2ac",
-    "url": "/tabata-timer-randomizer/static/js/main.6df40a93.chunk.js"
+    "revision": "a9539d59273555386415",
+    "url": "/tabata-timer-randomizer/static/js/main.a9539d59.chunk.js"
   },
   {
     "revision": "fd4c37ed8a46d19a7234",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/tabata-timer-randomizer/static/media/end-round.b5c21f3b.wav"
   },
   {
-    "revision": "a897fa7db5c8e2d4cb6fc961d5361b6c",
+    "revision": "eee70461b3660ce94759573b0f6782c2",
     "url": "/tabata-timer-randomizer/index.html"
   }
 ];
