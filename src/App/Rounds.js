@@ -3,9 +3,9 @@ import { Text } from '../components';
 
 const Rounds = ({ round }) => (
   <Text tag="h2" size="30px">
-    Round
+    Rounds Left:
     {' '}
-    {round}
+    {round - 1}
   </Text>
 );
 

@@ -11,8 +11,8 @@ import { useTabataHook } from './useTabataHook';
 const App = () => {
   const initialTabataState = {
     rounds: 5,
-    workMin: 15,
-    workMax: 25,
+    workMin: 45,
+    workMax: 90,
     work: 60,
     rest: 10,
     restPercent: 60,

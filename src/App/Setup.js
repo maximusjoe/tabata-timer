@@ -50,7 +50,7 @@ const Setup = ({ onChange }) => (
         <div className="grid-item"><Input type="number" placeholder="Min" name="workMin" width="40%" /></div>
         <div className="grid-item"><p>To</p></div>
         <div className="grid-item"><Input type="number" placeholder="Max" name="workMax" /></div>
-        <div className="grid-item"><Input type="number" placeholder="Rest (60%)" name="rest" /></div>
+        <div className="grid-item"><Input type="number" placeholder="Rest (60%)" name="restPercent" /></div>
       </div>
     </form>
   </>
