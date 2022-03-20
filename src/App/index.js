@@ -5,6 +5,7 @@ import { Controls } from './Controls';
 import { Setup } from './Setup';
 import { Rounds } from './Rounds';
 import { Timer } from './Timer';
+import { Text } from '../components';
 
 import { useTabataHook } from './useTabataHook';
 
@@ -39,7 +40,9 @@ const App = () => {
       <Container>
         <div style={{
           fontSize: "2rem", textAlign: "center"
-        }}>Tabata Timer Randomizer</div>
+        }}><Text tag="h1" size="40px">
+            Tabata Timer Randomizer
+          </Text></div>
         {tabata.isStarted ? (
           <React.Fragment>
             <Rounds round={tabata.rounds} />

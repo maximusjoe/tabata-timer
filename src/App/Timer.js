@@ -50,7 +50,7 @@ const Timer = React.memo(
         </Fade>
       </TransitionGroup>
       <Text tag="h2" size="30px">
-        {work ? 'WORK!' : 'Rest'}
+        {work ? 'WORK' : 'Rest'}
       </Text>
     </React.Fragment>
   ),
