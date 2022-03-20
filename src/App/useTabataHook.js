@@ -89,7 +89,7 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
             ...tabata,
             work: work - 1,
           });
-        }, 400);
+        }, 1000);
       }
 
       if (work === 0) {
@@ -98,7 +98,7 @@ const useTabataHook = (initialTabataState = defaultTabata) => {
             ...tabata,
             rest: rest - 1,
           });
-        }, 400);
+        }, 1000);
       }
 
       if (rest === 0 && work === 0) {
